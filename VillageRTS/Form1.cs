@@ -20,6 +20,7 @@ namespace VillageRTS
             BuildingCost = new ResourcePanel(BuildingCostPanel).SetColumns(3);
             BuildingProduction = new ResourcePanel(BuildingProductionPanel).SetColumns(3);
             ActionCost = new ResourcePanel(ActionPanel).SetColumns(3);
+            ActionBuildings = new ResourcePanel(ActionBuildingsPanel).SetColumns(3);
             //EnvironmentRes = new ResourcePanel(EnvironmentPanel);
 
             Ticker.Interval = 1000;
@@ -35,19 +36,21 @@ namespace VillageRTS
             MyFuelLabel.ForeColor = ResourcePanel.GetColor(Resource.My_Fuel);
             MyToolsLabel.ForeColor = ResourcePanel.GetColor(Resource.My_Tools);
             MyClothesLabel.ForeColor = ResourcePanel.GetColor(Resource.My_Clothes);
+            MyLeatherLabel.ForeColor = ResourcePanel.GetColor(Resource.My_Leather);
 
-            HumansHumansLimitLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_HumansLimit);
-            HumansHumansLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Humans);
-            HumansGoldLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Gold);
-            HumansWoodLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Wood);
-            HumansStoneLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Stone);
-            HumansIronLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Iron);
-            HumansFoodLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Food);
-            HumansFuelLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Fuel);
-            HumansToolsLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Tools);
-            HumansClothesLabel.ForeColor = ResourcePanel.GetColor(Resource.Humans_Clothes);
+            VillageHumansLimitLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_HumansLimit);
+            VillageHumansLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Humans);
+            VillageGoldLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Gold);
+            VillageWoodLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Wood);
+            VillageStoneLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Stone);
+            VillageIronLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Iron);
+            VillageFoodLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Food);
+            VillageFuelLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Fuel);
+            VillageToolsLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Tools);
+            VillageClothesLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Clothes);
+            VillageLeatherLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Leather);
 
-            StartNewGame(new Gameplay().Init());
+            StartNewGame(new Gameplay().Init().TryLoad());
         }
 
         public void StartNewGame(Gameplay gameplay)
@@ -104,17 +107,19 @@ namespace VillageRTS
                 Fill(MyFuelCount, Resource.My_Fuel);
                 Fill(MyToolsCount, Resource.My_Tools);
                 Fill(MyClothesCount, Resource.My_Clothes);
+                Fill(MyLeatherCount, Resource.My_Leather);
 
-                Fill(HumansHumansLimitCount, Resource.Humans_HumansLimit);
-                Fill(HumansHumansCount, Resource.Humans_Humans);
-                Fill(HumansGoldCount, Resource.Humans_Gold);
-                Fill(HumansWoodCount, Resource.Humans_Wood);
-                Fill(HumansStoneCount, Resource.Humans_Stone);
-                Fill(HumansIronCount, Resource.Humans_Iron);
-                Fill(HumansFoodCount, Resource.Humans_Food);
-                Fill(HumansFuelCount, Resource.Humans_Fuel);
-                Fill(HumansToolsCount, Resource.Humans_Tools);
-                Fill(HumansClothesCount, Resource.Humans_Clothes);
+                Fill(VillageHumansLimitCount, Resource.Village_HumansLimit);
+                Fill(VillageHumansCount, Resource.Village_Humans);
+                Fill(VillageGoldCount, Resource.Village_Gold);
+                Fill(VillageWoodCount, Resource.Village_Wood);
+                Fill(VillageStoneCount, Resource.Village_Stone);
+                Fill(VillageIronCount, Resource.Village_Iron);
+                Fill(VillageFoodCount, Resource.Village_Food);
+                Fill(VillageFuelCount, Resource.Village_Fuel);
+                Fill(VillageToolsCount, Resource.Village_Tools);
+                Fill(VillageClothesCount, Resource.Village_Clothes);
+                Fill(VillageLeatherCount, Resource.Village_Leather);
 
                 UpdateButtons();
             }
@@ -122,7 +127,7 @@ namespace VillageRTS
 
         private Action CurrentAction;
         private int current_building;
-        private ResourcePanel BuildingCost, BuildingProduction, ActionCost;
+        private ResourcePanel BuildingCost, BuildingProduction, ActionCost, ActionBuildings;
         private void BuildingListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CurrentGameplay != null && BuildingListBox.SelectedIndex != -1)
@@ -243,17 +248,30 @@ namespace VillageRTS
 
         private void SetX1Speed_Click(object sender, EventArgs e)
         {
-            Ticker.Interval = 1000;
+            Ticker.Interval = 500;
         }
 
         private void SetX2Speed_Click(object sender, EventArgs e)
         {
-            Ticker.Interval = 500;
+            Ticker.Interval = 250;
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (CurrentGameplay != null)
+            {
+                CurrentGameplay.Save();
+            }
+        }
+
+        private void NewGameSMI_Click(object sender, EventArgs e)
+        {
+            CurrentGameplay = new Gameplay().Init();
         }
 
         private void SetX3Speed_Click(object sender, EventArgs e)
         {
-            Ticker.Interval = 333;
+            Ticker.Interval = 166;
         }
 
         public void UpdateAction()
@@ -261,6 +279,7 @@ namespace VillageRTS
             if (CurrentGameplay != null && ActionsListBox.SelectedIndex != -1)
             {
                 ActionCost.MakeResources(CurrentAction.ResourceAction);
+                ActionBuildings.MakeBuildings(CurrentAction.BuildingAction);
             }
         }
 
@@ -269,7 +288,7 @@ namespace VillageRTS
             if (CurrentGameplay != null && BuildingListBox.SelectedIndex != -1)
             {
                 BuildingCost.MakeResources(Building.Buildings[current_building].Cost);
-                BuildingProduction.MakeResources(Building.Buildings[current_building].Production);
+                BuildingProduction.MakeResources(Building.Buildings[current_building].GetProduction(CurrentGameplay));
             }
         }
     }

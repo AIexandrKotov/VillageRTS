@@ -41,16 +41,17 @@ namespace VillageRTS
         static ResourcePanel()
         {
             UIRes.Add(Resource.My_Power, (Color.DeepSkyBlue, (50, 200))); 
-            UIRes.Add(Resource.My_HumansLimit, (Color.Red, (5, 20))); copy_last(Resource.Humans_HumansLimit);
-            UIRes.Add(Resource.My_Humans, (Color.Red, (10, 40))); copy_last(Resource.Humans_Humans);
-            UIRes.Add(Resource.My_Gold, (Color.Olive, (1000, 10000))); copy_last(Resource.Humans_Gold);
-            UIRes.Add(Resource.My_Wood, (Color.SaddleBrown, (400, 2000))); copy_last(Resource.Humans_Wood);
-            UIRes.Add(Resource.My_Stone, (Color.DimGray, (400, 2000))); copy_last(Resource.Humans_Stone);
-            UIRes.Add(Resource.My_Iron, (Color.Blue, (200, 1000))); copy_last(Resource.Humans_Iron);
-            UIRes.Add(Resource.My_Food, (Color.Green, (1000, 10000))); copy_last(Resource.Humans_Food);
-            UIRes.Add(Resource.My_Fuel, (Color.Magenta, (1000, 10000))); copy_last(Resource.Humans_Fuel);
-            UIRes.Add(Resource.My_Tools, (Color.DarkCyan, (50, 500))); copy_last(Resource.Humans_Tools);
-            UIRes.Add(Resource.My_Clothes, (Color.Crimson, (50, 500))); copy_last(Resource.Humans_Clothes);
+            UIRes.Add(Resource.My_HumansLimit, (Color.Red, (5, 20))); copy_last(Resource.Village_HumansLimit);
+            UIRes.Add(Resource.My_Humans, (Color.Red, (10, 40))); copy_last(Resource.Village_Humans);
+            UIRes.Add(Resource.My_Gold, (Color.Olive, (1000, 10000))); copy_last(Resource.Village_Gold);
+            UIRes.Add(Resource.My_Wood, (Color.SaddleBrown, (400, 2000))); copy_last(Resource.Village_Wood);
+            UIRes.Add(Resource.My_Stone, (Color.DimGray, (400, 2000))); copy_last(Resource.Village_Stone);
+            UIRes.Add(Resource.My_Iron, (Color.Blue, (200, 1000))); copy_last(Resource.Village_Iron);
+            UIRes.Add(Resource.My_Food, (Color.Green, (1000, 10000))); copy_last(Resource.Village_Food);
+            UIRes.Add(Resource.My_Fuel, (Color.Magenta, (1000, 10000))); copy_last(Resource.Village_Fuel);
+            UIRes.Add(Resource.My_Tools, (Color.DarkCyan, (50, 500))); copy_last(Resource.Village_Tools);
+            UIRes.Add(Resource.My_Clothes, (Color.Crimson, (50, 500))); copy_last(Resource.Village_Clothes);
+            UIRes.Add(Resource.My_Leather, (Color.Crimson, (50, 500))); copy_last(Resource.Village_Leather);
         }
 
         public static Color GetColor(Resource resource)
@@ -66,6 +67,30 @@ namespace VillageRTS
             if (count < res.Item1) return Color.FromArgb(255, 192, 192);
             if (count < res.Item2) return Color.FromArgb(255, 225, 192);
             return Color.FromArgb(192, 225, 192);
+        }
+
+        public void MakeBuildings(IEnumerable<KeyValuePair<int, int>> buildings)
+        {
+            Clear();
+            var i = 0;
+            foreach (var x in buildings)
+            {
+                var label = new Label();
+                label.AutoSize = false;
+                label.Size = new System.Drawing.Size(120, 20);
+                var left = 3 + (i % Columns) * 120;
+                var right = 3 + 20 * (i / Columns);
+                label.Location = new System.Drawing.Point(left, right);
+                label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+                var s = $"{Building.Buildings[x.Key]}: +{x.Value}".Replace("_", " ").Replace("+-", "-");
+                label.Text = s;
+                label.ForeColor = Color.Black;
+                label.TabIndex = i;
+                ResourceLabels.Add(label);
+                Reference.Controls.Add(label);
+                i++;
+            }
         }
 
         public void MakeResources(IEnumerable<KeyValuePair<Resource, int>> resources)

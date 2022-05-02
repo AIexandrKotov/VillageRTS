@@ -34,6 +34,7 @@ namespace VillageRTS
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ActionsPage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ActionBuildingsPanel = new System.Windows.Forms.Panel();
             this.ActionX100ReverseDoButton = new System.Windows.Forms.Button();
             this.ActionX10ReverseDoButton = new System.Windows.Forms.Button();
             this.ActionX100DoButton = new System.Windows.Forms.Button();
@@ -57,28 +58,32 @@ namespace VillageRTS
             this.BuildingBuildButton = new System.Windows.Forms.Button();
             this.BuildingListBox = new System.Windows.Forms.ListBox();
             this.HumanResourcesGroup = new System.Windows.Forms.GroupBox();
-            this.HumansClothesCount = new System.Windows.Forms.TextBox();
-            this.HumansClothesLabel = new System.Windows.Forms.Label();
-            this.HumansToolsCount = new System.Windows.Forms.TextBox();
-            this.HumansToolsLabel = new System.Windows.Forms.Label();
-            this.HumansFuelCount = new System.Windows.Forms.TextBox();
-            this.HumansFuelLabel = new System.Windows.Forms.Label();
-            this.HumansFoodCount = new System.Windows.Forms.TextBox();
-            this.HumansFoodLabel = new System.Windows.Forms.Label();
-            this.HumansIronCount = new System.Windows.Forms.TextBox();
-            this.HumansIronLabel = new System.Windows.Forms.Label();
-            this.HumansStoneCount = new System.Windows.Forms.TextBox();
-            this.HumansStoneLabel = new System.Windows.Forms.Label();
-            this.HumansWoodCount = new System.Windows.Forms.TextBox();
-            this.HumansWoodLabel = new System.Windows.Forms.Label();
-            this.HumansGoldCount = new System.Windows.Forms.TextBox();
-            this.HumansGoldLabel = new System.Windows.Forms.Label();
-            this.HumansHumansCount = new System.Windows.Forms.TextBox();
-            this.HumansHumansLabel = new System.Windows.Forms.Label();
-            this.HumansHumansLimitCount = new System.Windows.Forms.TextBox();
-            this.HumansHumansLimitLabel = new System.Windows.Forms.Label();
+            this.VillageLeatherCount = new System.Windows.Forms.TextBox();
+            this.VillageLeatherLabel = new System.Windows.Forms.Label();
+            this.VillageClothesCount = new System.Windows.Forms.TextBox();
+            this.VillageClothesLabel = new System.Windows.Forms.Label();
+            this.VillageToolsCount = new System.Windows.Forms.TextBox();
+            this.VillageToolsLabel = new System.Windows.Forms.Label();
+            this.VillageFuelCount = new System.Windows.Forms.TextBox();
+            this.VillageFuelLabel = new System.Windows.Forms.Label();
+            this.VillageFoodCount = new System.Windows.Forms.TextBox();
+            this.VillageFoodLabel = new System.Windows.Forms.Label();
+            this.VillageIronCount = new System.Windows.Forms.TextBox();
+            this.VillageIronLabel = new System.Windows.Forms.Label();
+            this.VillageStoneCount = new System.Windows.Forms.TextBox();
+            this.VillageStoneLabel = new System.Windows.Forms.Label();
+            this.VillageWoodCount = new System.Windows.Forms.TextBox();
+            this.VillageWoodLabel = new System.Windows.Forms.Label();
+            this.VillageGoldCount = new System.Windows.Forms.TextBox();
+            this.VillageGoldLabel = new System.Windows.Forms.Label();
+            this.VillageHumansCount = new System.Windows.Forms.TextBox();
+            this.VillageHumansLabel = new System.Windows.Forms.Label();
+            this.VillageHumansLimitCount = new System.Windows.Forms.TextBox();
+            this.VillageHumansLimitLabel = new System.Windows.Forms.Label();
             this.Ticker = new System.Windows.Forms.Timer(this.components);
             this.MyResourcesGroup = new System.Windows.Forms.GroupBox();
+            this.MyLeatherCount = new System.Windows.Forms.TextBox();
+            this.MyLeatherLabel = new System.Windows.Forms.Label();
             this.MyClothesCount = new System.Windows.Forms.TextBox();
             this.MyClothesLabel = new System.Windows.Forms.Label();
             this.MyToolsCount = new System.Windows.Forms.TextBox();
@@ -102,10 +107,12 @@ namespace VillageRTS
             this.MyPowerCount = new System.Windows.Forms.TextBox();
             this.MyPowerLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.GameTS = new System.Windows.Forms.ToolStripMenuItem();
+            this.NewGameSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.SetX1Speed = new System.Windows.Forms.Button();
-            this.SetX2Speed = new System.Windows.Forms.Button();
             this.SetX3Speed = new System.Windows.Forms.Button();
+            this.SetX2Speed = new System.Windows.Forms.Button();
+            this.SetX1Speed = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ActionsPage.SuspendLayout();
@@ -114,6 +121,7 @@ namespace VillageRTS
             this.BuildingGroup.SuspendLayout();
             this.HumanResourcesGroup.SuspendLayout();
             this.MyResourcesGroup.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -157,6 +165,7 @@ namespace VillageRTS
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.ActionBuildingsPanel);
             this.groupBox1.Controls.Add(this.ActionX100ReverseDoButton);
             this.groupBox1.Controls.Add(this.ActionX10ReverseDoButton);
             this.groupBox1.Controls.Add(this.ActionX100DoButton);
@@ -173,11 +182,21 @@ namespace VillageRTS
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ActionGroup";
             // 
+            // ActionBuildingsPanel
+            // 
+            this.ActionBuildingsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ActionBuildingsPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.ActionBuildingsPanel.Location = new System.Drawing.Point(6, 236);
+            this.ActionBuildingsPanel.Name = "ActionBuildingsPanel";
+            this.ActionBuildingsPanel.Size = new System.Drawing.Size(410, 66);
+            this.ActionBuildingsPanel.TabIndex = 19;
+            // 
             // ActionX100ReverseDoButton
             // 
             this.ActionX100ReverseDoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ActionX100ReverseDoButton.Location = new System.Drawing.Point(363, 276);
+            this.ActionX100ReverseDoButton.Location = new System.Drawing.Point(363, 348);
             this.ActionX100ReverseDoButton.Name = "ActionX100ReverseDoButton";
             this.ActionX100ReverseDoButton.Size = new System.Drawing.Size(53, 34);
             this.ActionX100ReverseDoButton.TabIndex = 18;
@@ -189,7 +208,7 @@ namespace VillageRTS
             // 
             this.ActionX10ReverseDoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ActionX10ReverseDoButton.Location = new System.Drawing.Point(304, 276);
+            this.ActionX10ReverseDoButton.Location = new System.Drawing.Point(304, 348);
             this.ActionX10ReverseDoButton.Name = "ActionX10ReverseDoButton";
             this.ActionX10ReverseDoButton.Size = new System.Drawing.Size(53, 34);
             this.ActionX10ReverseDoButton.TabIndex = 17;
@@ -201,7 +220,7 @@ namespace VillageRTS
             // 
             this.ActionX100DoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ActionX100DoButton.Location = new System.Drawing.Point(363, 236);
+            this.ActionX100DoButton.Location = new System.Drawing.Point(363, 308);
             this.ActionX100DoButton.Name = "ActionX100DoButton";
             this.ActionX100DoButton.Size = new System.Drawing.Size(53, 34);
             this.ActionX100DoButton.TabIndex = 16;
@@ -213,7 +232,7 @@ namespace VillageRTS
             // 
             this.ActionX10DoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ActionX10DoButton.Location = new System.Drawing.Point(304, 236);
+            this.ActionX10DoButton.Location = new System.Drawing.Point(304, 308);
             this.ActionX10DoButton.Name = "ActionX10DoButton";
             this.ActionX10DoButton.Size = new System.Drawing.Size(53, 34);
             this.ActionX10DoButton.TabIndex = 15;
@@ -234,7 +253,7 @@ namespace VillageRTS
             // 
             this.ActionReverseDoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ActionReverseDoButton.Location = new System.Drawing.Point(6, 276);
+            this.ActionReverseDoButton.Location = new System.Drawing.Point(6, 348);
             this.ActionReverseDoButton.Name = "ActionReverseDoButton";
             this.ActionReverseDoButton.Size = new System.Drawing.Size(292, 34);
             this.ActionReverseDoButton.TabIndex = 5;
@@ -265,7 +284,7 @@ namespace VillageRTS
             // 
             this.ActionDoButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ActionDoButton.Location = new System.Drawing.Point(6, 236);
+            this.ActionDoButton.Location = new System.Drawing.Point(6, 308);
             this.ActionDoButton.Name = "ActionDoButton";
             this.ActionDoButton.Size = new System.Drawing.Size(292, 34);
             this.ActionDoButton.TabIndex = 1;
@@ -422,232 +441,254 @@ namespace VillageRTS
             // 
             this.HumanResourcesGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.HumanResourcesGroup.Controls.Add(this.HumansClothesCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansClothesLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansToolsCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansToolsLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansFuelCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansFuelLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansFoodCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansFoodLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansIronCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansIronLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansStoneCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansStoneLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansWoodCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansWoodLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansGoldCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansGoldLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansHumansCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansHumansLabel);
-            this.HumanResourcesGroup.Controls.Add(this.HumansHumansLimitCount);
-            this.HumanResourcesGroup.Controls.Add(this.HumansHumansLimitLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageLeatherCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageLeatherLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageClothesCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageClothesLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageToolsCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageToolsLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageFuelCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageFuelLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageFoodCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageFoodLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageIronCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageIronLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageStoneCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageStoneLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageWoodCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageWoodLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageGoldCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageGoldLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageHumansCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageHumansLabel);
+            this.HumanResourcesGroup.Controls.Add(this.VillageHumansLimitCount);
+            this.HumanResourcesGroup.Controls.Add(this.VillageHumansLimitLabel);
             this.HumanResourcesGroup.Location = new System.Drawing.Point(800, 27);
             this.HumanResourcesGroup.Name = "HumanResourcesGroup";
             this.HumanResourcesGroup.Size = new System.Drawing.Size(205, 538);
             this.HumanResourcesGroup.TabIndex = 4;
             this.HumanResourcesGroup.TabStop = false;
-            this.HumanResourcesGroup.Text = "Human Resourses";
+            this.HumanResourcesGroup.Text = "Village Resourses";
             // 
-            // HumansClothesCount
+            // VillageLeatherCount
             // 
-            this.HumansClothesCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.HumansClothesCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansClothesCount.Location = new System.Drawing.Point(102, 200);
-            this.HumansClothesCount.Name = "HumansClothesCount";
-            this.HumansClothesCount.ReadOnly = true;
-            this.HumansClothesCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansClothesCount.TabIndex = 41;
-            this.HumansClothesCount.Text = "1999999999";
+            this.VillageLeatherCount.BackColor = System.Drawing.Color.White;
+            this.VillageLeatherCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageLeatherCount.Location = new System.Drawing.Point(102, 220);
+            this.VillageLeatherCount.Name = "VillageLeatherCount";
+            this.VillageLeatherCount.ReadOnly = true;
+            this.VillageLeatherCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageLeatherCount.TabIndex = 43;
+            this.VillageLeatherCount.Text = "1999999999";
             // 
-            // HumansClothesLabel
+            // VillageLeatherLabel
             // 
-            this.HumansClothesLabel.Location = new System.Drawing.Point(6, 196);
-            this.HumansClothesLabel.Name = "HumansClothesLabel";
-            this.HumansClothesLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansClothesLabel.TabIndex = 40;
-            this.HumansClothesLabel.Text = "Clothes:";
-            this.HumansClothesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageLeatherLabel.Location = new System.Drawing.Point(6, 216);
+            this.VillageLeatherLabel.Name = "VillageLeatherLabel";
+            this.VillageLeatherLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageLeatherLabel.TabIndex = 42;
+            this.VillageLeatherLabel.Text = "Leather:";
+            this.VillageLeatherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansToolsCount
+            // VillageClothesCount
             // 
-            this.HumansToolsCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.HumansToolsCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansToolsCount.Location = new System.Drawing.Point(102, 180);
-            this.HumansToolsCount.Name = "HumansToolsCount";
-            this.HumansToolsCount.ReadOnly = true;
-            this.HumansToolsCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansToolsCount.TabIndex = 39;
-            this.HumansToolsCount.Text = "1999999999";
+            this.VillageClothesCount.BackColor = System.Drawing.Color.White;
+            this.VillageClothesCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageClothesCount.Location = new System.Drawing.Point(102, 200);
+            this.VillageClothesCount.Name = "VillageClothesCount";
+            this.VillageClothesCount.ReadOnly = true;
+            this.VillageClothesCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageClothesCount.TabIndex = 41;
+            this.VillageClothesCount.Text = "1999999999";
             // 
-            // HumansToolsLabel
+            // VillageClothesLabel
             // 
-            this.HumansToolsLabel.Location = new System.Drawing.Point(6, 176);
-            this.HumansToolsLabel.Name = "HumansToolsLabel";
-            this.HumansToolsLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansToolsLabel.TabIndex = 38;
-            this.HumansToolsLabel.Text = "Tools:";
-            this.HumansToolsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageClothesLabel.Location = new System.Drawing.Point(6, 196);
+            this.VillageClothesLabel.Name = "VillageClothesLabel";
+            this.VillageClothesLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageClothesLabel.TabIndex = 40;
+            this.VillageClothesLabel.Text = "Clothes:";
+            this.VillageClothesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansFuelCount
+            // VillageToolsCount
             // 
-            this.HumansFuelCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.HumansFuelCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansFuelCount.Location = new System.Drawing.Point(102, 160);
-            this.HumansFuelCount.Name = "HumansFuelCount";
-            this.HumansFuelCount.ReadOnly = true;
-            this.HumansFuelCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansFuelCount.TabIndex = 37;
-            this.HumansFuelCount.Text = "1999999999";
+            this.VillageToolsCount.BackColor = System.Drawing.Color.White;
+            this.VillageToolsCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageToolsCount.Location = new System.Drawing.Point(102, 180);
+            this.VillageToolsCount.Name = "VillageToolsCount";
+            this.VillageToolsCount.ReadOnly = true;
+            this.VillageToolsCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageToolsCount.TabIndex = 39;
+            this.VillageToolsCount.Text = "1999999999";
             // 
-            // HumansFuelLabel
+            // VillageToolsLabel
             // 
-            this.HumansFuelLabel.Location = new System.Drawing.Point(6, 156);
-            this.HumansFuelLabel.Name = "HumansFuelLabel";
-            this.HumansFuelLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansFuelLabel.TabIndex = 36;
-            this.HumansFuelLabel.Text = "Fuel:";
-            this.HumansFuelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageToolsLabel.Location = new System.Drawing.Point(6, 176);
+            this.VillageToolsLabel.Name = "VillageToolsLabel";
+            this.VillageToolsLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageToolsLabel.TabIndex = 38;
+            this.VillageToolsLabel.Text = "Tools:";
+            this.VillageToolsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansFoodCount
+            // VillageFuelCount
             // 
-            this.HumansFoodCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.HumansFoodCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansFoodCount.Location = new System.Drawing.Point(102, 140);
-            this.HumansFoodCount.Name = "HumansFoodCount";
-            this.HumansFoodCount.ReadOnly = true;
-            this.HumansFoodCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansFoodCount.TabIndex = 35;
-            this.HumansFoodCount.Text = "1999999999";
+            this.VillageFuelCount.BackColor = System.Drawing.Color.White;
+            this.VillageFuelCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageFuelCount.Location = new System.Drawing.Point(102, 160);
+            this.VillageFuelCount.Name = "VillageFuelCount";
+            this.VillageFuelCount.ReadOnly = true;
+            this.VillageFuelCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageFuelCount.TabIndex = 37;
+            this.VillageFuelCount.Text = "1999999999";
             // 
-            // HumansFoodLabel
+            // VillageFuelLabel
             // 
-            this.HumansFoodLabel.Location = new System.Drawing.Point(6, 136);
-            this.HumansFoodLabel.Name = "HumansFoodLabel";
-            this.HumansFoodLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansFoodLabel.TabIndex = 34;
-            this.HumansFoodLabel.Text = "Food:";
-            this.HumansFoodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageFuelLabel.Location = new System.Drawing.Point(6, 156);
+            this.VillageFuelLabel.Name = "VillageFuelLabel";
+            this.VillageFuelLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageFuelLabel.TabIndex = 36;
+            this.VillageFuelLabel.Text = "Fuel:";
+            this.VillageFuelLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansIronCount
+            // VillageFoodCount
             // 
-            this.HumansIronCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.HumansIronCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansIronCount.Location = new System.Drawing.Point(102, 120);
-            this.HumansIronCount.Name = "HumansIronCount";
-            this.HumansIronCount.ReadOnly = true;
-            this.HumansIronCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansIronCount.TabIndex = 33;
-            this.HumansIronCount.Text = "1999999999";
+            this.VillageFoodCount.BackColor = System.Drawing.Color.White;
+            this.VillageFoodCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageFoodCount.Location = new System.Drawing.Point(102, 140);
+            this.VillageFoodCount.Name = "VillageFoodCount";
+            this.VillageFoodCount.ReadOnly = true;
+            this.VillageFoodCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageFoodCount.TabIndex = 35;
+            this.VillageFoodCount.Text = "1999999999";
             // 
-            // HumansIronLabel
+            // VillageFoodLabel
             // 
-            this.HumansIronLabel.Location = new System.Drawing.Point(6, 116);
-            this.HumansIronLabel.Name = "HumansIronLabel";
-            this.HumansIronLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansIronLabel.TabIndex = 32;
-            this.HumansIronLabel.Text = "Iron:";
-            this.HumansIronLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageFoodLabel.Location = new System.Drawing.Point(6, 136);
+            this.VillageFoodLabel.Name = "VillageFoodLabel";
+            this.VillageFoodLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageFoodLabel.TabIndex = 34;
+            this.VillageFoodLabel.Text = "Food:";
+            this.VillageFoodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansStoneCount
+            // VillageIronCount
             // 
-            this.HumansStoneCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.HumansStoneCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansStoneCount.Location = new System.Drawing.Point(102, 100);
-            this.HumansStoneCount.Name = "HumansStoneCount";
-            this.HumansStoneCount.ReadOnly = true;
-            this.HumansStoneCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansStoneCount.TabIndex = 31;
-            this.HumansStoneCount.Text = "1999999999";
+            this.VillageIronCount.BackColor = System.Drawing.Color.White;
+            this.VillageIronCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageIronCount.Location = new System.Drawing.Point(102, 120);
+            this.VillageIronCount.Name = "VillageIronCount";
+            this.VillageIronCount.ReadOnly = true;
+            this.VillageIronCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageIronCount.TabIndex = 33;
+            this.VillageIronCount.Text = "1999999999";
             // 
-            // HumansStoneLabel
+            // VillageIronLabel
             // 
-            this.HumansStoneLabel.Location = new System.Drawing.Point(6, 96);
-            this.HumansStoneLabel.Name = "HumansStoneLabel";
-            this.HumansStoneLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansStoneLabel.TabIndex = 30;
-            this.HumansStoneLabel.Text = "Stone:";
-            this.HumansStoneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageIronLabel.Location = new System.Drawing.Point(6, 116);
+            this.VillageIronLabel.Name = "VillageIronLabel";
+            this.VillageIronLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageIronLabel.TabIndex = 32;
+            this.VillageIronLabel.Text = "Iron:";
+            this.VillageIronLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansWoodCount
+            // VillageStoneCount
             // 
-            this.HumansWoodCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.HumansWoodCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansWoodCount.Location = new System.Drawing.Point(102, 80);
-            this.HumansWoodCount.Name = "HumansWoodCount";
-            this.HumansWoodCount.ReadOnly = true;
-            this.HumansWoodCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansWoodCount.TabIndex = 29;
-            this.HumansWoodCount.Text = "1999999999";
+            this.VillageStoneCount.BackColor = System.Drawing.Color.White;
+            this.VillageStoneCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageStoneCount.Location = new System.Drawing.Point(102, 100);
+            this.VillageStoneCount.Name = "VillageStoneCount";
+            this.VillageStoneCount.ReadOnly = true;
+            this.VillageStoneCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageStoneCount.TabIndex = 31;
+            this.VillageStoneCount.Text = "1999999999";
             // 
-            // HumansWoodLabel
+            // VillageStoneLabel
             // 
-            this.HumansWoodLabel.Location = new System.Drawing.Point(6, 76);
-            this.HumansWoodLabel.Name = "HumansWoodLabel";
-            this.HumansWoodLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansWoodLabel.TabIndex = 28;
-            this.HumansWoodLabel.Text = "Wood:";
-            this.HumansWoodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageStoneLabel.Location = new System.Drawing.Point(6, 96);
+            this.VillageStoneLabel.Name = "VillageStoneLabel";
+            this.VillageStoneLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageStoneLabel.TabIndex = 30;
+            this.VillageStoneLabel.Text = "Stone:";
+            this.VillageStoneLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansGoldCount
+            // VillageWoodCount
             // 
-            this.HumansGoldCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.HumansGoldCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansGoldCount.Location = new System.Drawing.Point(102, 60);
-            this.HumansGoldCount.Name = "HumansGoldCount";
-            this.HumansGoldCount.ReadOnly = true;
-            this.HumansGoldCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansGoldCount.TabIndex = 27;
-            this.HumansGoldCount.Text = "1999999999";
+            this.VillageWoodCount.BackColor = System.Drawing.Color.White;
+            this.VillageWoodCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageWoodCount.Location = new System.Drawing.Point(102, 80);
+            this.VillageWoodCount.Name = "VillageWoodCount";
+            this.VillageWoodCount.ReadOnly = true;
+            this.VillageWoodCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageWoodCount.TabIndex = 29;
+            this.VillageWoodCount.Text = "1999999999";
             // 
-            // HumansGoldLabel
+            // VillageWoodLabel
             // 
-            this.HumansGoldLabel.Location = new System.Drawing.Point(6, 56);
-            this.HumansGoldLabel.Name = "HumansGoldLabel";
-            this.HumansGoldLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansGoldLabel.TabIndex = 26;
-            this.HumansGoldLabel.Text = "Gold:";
-            this.HumansGoldLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageWoodLabel.Location = new System.Drawing.Point(6, 76);
+            this.VillageWoodLabel.Name = "VillageWoodLabel";
+            this.VillageWoodLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageWoodLabel.TabIndex = 28;
+            this.VillageWoodLabel.Text = "Wood:";
+            this.VillageWoodLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansHumansCount
+            // VillageGoldCount
             // 
-            this.HumansHumansCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.HumansHumansCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansHumansCount.Location = new System.Drawing.Point(102, 40);
-            this.HumansHumansCount.Name = "HumansHumansCount";
-            this.HumansHumansCount.ReadOnly = true;
-            this.HumansHumansCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansHumansCount.TabIndex = 25;
-            this.HumansHumansCount.Text = "1999999999";
+            this.VillageGoldCount.BackColor = System.Drawing.Color.White;
+            this.VillageGoldCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageGoldCount.Location = new System.Drawing.Point(102, 60);
+            this.VillageGoldCount.Name = "VillageGoldCount";
+            this.VillageGoldCount.ReadOnly = true;
+            this.VillageGoldCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageGoldCount.TabIndex = 27;
+            this.VillageGoldCount.Text = "1999999999";
             // 
-            // HumansHumansLabel
+            // VillageGoldLabel
             // 
-            this.HumansHumansLabel.Location = new System.Drawing.Point(6, 36);
-            this.HumansHumansLabel.Name = "HumansHumansLabel";
-            this.HumansHumansLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansHumansLabel.TabIndex = 24;
-            this.HumansHumansLabel.Text = "Humans:";
-            this.HumansHumansLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageGoldLabel.Location = new System.Drawing.Point(6, 56);
+            this.VillageGoldLabel.Name = "VillageGoldLabel";
+            this.VillageGoldLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageGoldLabel.TabIndex = 26;
+            this.VillageGoldLabel.Text = "Gold:";
+            this.VillageGoldLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // HumansHumansLimitCount
+            // VillageHumansCount
             // 
-            this.HumansHumansLimitCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.HumansHumansLimitCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.HumansHumansLimitCount.Location = new System.Drawing.Point(102, 20);
-            this.HumansHumansLimitCount.Name = "HumansHumansLimitCount";
-            this.HumansHumansLimitCount.ReadOnly = true;
-            this.HumansHumansLimitCount.Size = new System.Drawing.Size(88, 13);
-            this.HumansHumansLimitCount.TabIndex = 23;
-            this.HumansHumansLimitCount.Text = "1999999999";
+            this.VillageHumansCount.BackColor = System.Drawing.Color.White;
+            this.VillageHumansCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageHumansCount.Location = new System.Drawing.Point(102, 40);
+            this.VillageHumansCount.Name = "VillageHumansCount";
+            this.VillageHumansCount.ReadOnly = true;
+            this.VillageHumansCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageHumansCount.TabIndex = 25;
+            this.VillageHumansCount.Text = "1999999999";
             // 
-            // HumansHumansLimitLabel
+            // VillageHumansLabel
             // 
-            this.HumansHumansLimitLabel.Location = new System.Drawing.Point(6, 16);
-            this.HumansHumansLimitLabel.Name = "HumansHumansLimitLabel";
-            this.HumansHumansLimitLabel.Size = new System.Drawing.Size(90, 20);
-            this.HumansHumansLimitLabel.TabIndex = 22;
-            this.HumansHumansLimitLabel.Text = "HumanLimit:";
-            this.HumansHumansLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.VillageHumansLabel.Location = new System.Drawing.Point(6, 36);
+            this.VillageHumansLabel.Name = "VillageHumansLabel";
+            this.VillageHumansLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageHumansLabel.TabIndex = 24;
+            this.VillageHumansLabel.Text = "Humans:";
+            this.VillageHumansLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // VillageHumansLimitCount
+            // 
+            this.VillageHumansLimitCount.BackColor = System.Drawing.Color.White;
+            this.VillageHumansLimitCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.VillageHumansLimitCount.Location = new System.Drawing.Point(102, 20);
+            this.VillageHumansLimitCount.Name = "VillageHumansLimitCount";
+            this.VillageHumansLimitCount.ReadOnly = true;
+            this.VillageHumansLimitCount.Size = new System.Drawing.Size(88, 13);
+            this.VillageHumansLimitCount.TabIndex = 23;
+            this.VillageHumansLimitCount.Text = "1999999999";
+            // 
+            // VillageHumansLimitLabel
+            // 
+            this.VillageHumansLimitLabel.Location = new System.Drawing.Point(6, 16);
+            this.VillageHumansLimitLabel.Name = "VillageHumansLimitLabel";
+            this.VillageHumansLimitLabel.Size = new System.Drawing.Size(90, 20);
+            this.VillageHumansLimitLabel.TabIndex = 22;
+            this.VillageHumansLimitLabel.Text = "HumanLimit:";
+            this.VillageHumansLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Ticker
             // 
@@ -658,6 +699,8 @@ namespace VillageRTS
             // 
             this.MyResourcesGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.MyResourcesGroup.Controls.Add(this.MyLeatherCount);
+            this.MyResourcesGroup.Controls.Add(this.MyLeatherLabel);
             this.MyResourcesGroup.Controls.Add(this.MyClothesCount);
             this.MyResourcesGroup.Controls.Add(this.MyClothesLabel);
             this.MyResourcesGroup.Controls.Add(this.MyToolsCount);
@@ -687,9 +730,29 @@ namespace VillageRTS
             this.MyResourcesGroup.TabStop = false;
             this.MyResourcesGroup.Text = "My Resourses";
             // 
+            // MyLeatherCount
+            // 
+            this.MyLeatherCount.BackColor = System.Drawing.Color.White;
+            this.MyLeatherCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MyLeatherCount.Location = new System.Drawing.Point(102, 243);
+            this.MyLeatherCount.Name = "MyLeatherCount";
+            this.MyLeatherCount.ReadOnly = true;
+            this.MyLeatherCount.Size = new System.Drawing.Size(88, 13);
+            this.MyLeatherCount.TabIndex = 23;
+            this.MyLeatherCount.Text = "1999999999";
+            // 
+            // MyLeatherLabel
+            // 
+            this.MyLeatherLabel.Location = new System.Drawing.Point(6, 239);
+            this.MyLeatherLabel.Name = "MyLeatherLabel";
+            this.MyLeatherLabel.Size = new System.Drawing.Size(90, 20);
+            this.MyLeatherLabel.TabIndex = 22;
+            this.MyLeatherLabel.Text = "Leather:";
+            this.MyLeatherLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // MyClothesCount
             // 
-            this.MyClothesCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyClothesCount.BackColor = System.Drawing.Color.White;
             this.MyClothesCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyClothesCount.Location = new System.Drawing.Point(102, 223);
             this.MyClothesCount.Name = "MyClothesCount";
@@ -709,7 +772,7 @@ namespace VillageRTS
             // 
             // MyToolsCount
             // 
-            this.MyToolsCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyToolsCount.BackColor = System.Drawing.Color.White;
             this.MyToolsCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyToolsCount.Location = new System.Drawing.Point(102, 203);
             this.MyToolsCount.Name = "MyToolsCount";
@@ -729,7 +792,7 @@ namespace VillageRTS
             // 
             // MyFuelCount
             // 
-            this.MyFuelCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyFuelCount.BackColor = System.Drawing.Color.White;
             this.MyFuelCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyFuelCount.Location = new System.Drawing.Point(102, 183);
             this.MyFuelCount.Name = "MyFuelCount";
@@ -749,7 +812,7 @@ namespace VillageRTS
             // 
             // MyFoodCount
             // 
-            this.MyFoodCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyFoodCount.BackColor = System.Drawing.Color.White;
             this.MyFoodCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyFoodCount.Location = new System.Drawing.Point(102, 163);
             this.MyFoodCount.Name = "MyFoodCount";
@@ -769,7 +832,7 @@ namespace VillageRTS
             // 
             // MyIronCount
             // 
-            this.MyIronCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyIronCount.BackColor = System.Drawing.Color.White;
             this.MyIronCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyIronCount.Location = new System.Drawing.Point(102, 143);
             this.MyIronCount.Name = "MyIronCount";
@@ -789,7 +852,7 @@ namespace VillageRTS
             // 
             // MyStoneCount
             // 
-            this.MyStoneCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyStoneCount.BackColor = System.Drawing.Color.White;
             this.MyStoneCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyStoneCount.Location = new System.Drawing.Point(102, 123);
             this.MyStoneCount.Name = "MyStoneCount";
@@ -809,7 +872,7 @@ namespace VillageRTS
             // 
             // MyWoodCount
             // 
-            this.MyWoodCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyWoodCount.BackColor = System.Drawing.Color.White;
             this.MyWoodCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyWoodCount.Location = new System.Drawing.Point(102, 103);
             this.MyWoodCount.Name = "MyWoodCount";
@@ -829,7 +892,7 @@ namespace VillageRTS
             // 
             // MyGoldCount
             // 
-            this.MyGoldCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyGoldCount.BackColor = System.Drawing.Color.White;
             this.MyGoldCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyGoldCount.Location = new System.Drawing.Point(102, 83);
             this.MyGoldCount.Name = "MyGoldCount";
@@ -849,7 +912,7 @@ namespace VillageRTS
             // 
             // MyHumansCount
             // 
-            this.MyHumansCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.MyHumansCount.BackColor = System.Drawing.Color.White;
             this.MyHumansCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyHumansCount.Location = new System.Drawing.Point(102, 63);
             this.MyHumansCount.Name = "MyHumansCount";
@@ -869,7 +932,7 @@ namespace VillageRTS
             // 
             // MyHumansLimitCount
             // 
-            this.MyHumansLimitCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.MyHumansLimitCount.BackColor = System.Drawing.Color.White;
             this.MyHumansLimitCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyHumansLimitCount.Location = new System.Drawing.Point(102, 43);
             this.MyHumansLimitCount.Name = "MyHumansLimitCount";
@@ -889,7 +952,7 @@ namespace VillageRTS
             // 
             // MyPowerCount
             // 
-            this.MyPowerCount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.MyPowerCount.BackColor = System.Drawing.Color.White;
             this.MyPowerCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MyPowerCount.Location = new System.Drawing.Point(102, 23);
             this.MyPowerCount.Name = "MyPowerCount";
@@ -909,11 +972,28 @@ namespace VillageRTS
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.GameTS});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1017, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // GameTS
+            // 
+            this.GameTS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NewGameSMI});
+            this.GameTS.Name = "GameTS";
+            this.GameTS.Size = new System.Drawing.Size(50, 20);
+            this.GameTS.Text = "Game";
+            // 
+            // NewGameSMI
+            // 
+            this.NewGameSMI.Name = "NewGameSMI";
+            this.NewGameSMI.Size = new System.Drawing.Size(180, 22);
+            this.NewGameSMI.Text = "New";
+            this.NewGameSMI.Click += new System.EventHandler(this.NewGameSMI_Click);
             // 
             // groupBox2
             // 
@@ -927,15 +1007,15 @@ namespace VillageRTS
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Speed";
             // 
-            // SetX1Speed
+            // SetX3Speed
             // 
-            this.SetX1Speed.Location = new System.Drawing.Point(9, 20);
-            this.SetX1Speed.Name = "SetX1Speed";
-            this.SetX1Speed.Size = new System.Drawing.Size(54, 23);
-            this.SetX1Speed.TabIndex = 0;
-            this.SetX1Speed.Text = "x1";
-            this.SetX1Speed.UseVisualStyleBackColor = true;
-            this.SetX1Speed.Click += new System.EventHandler(this.SetX1Speed_Click);
+            this.SetX3Speed.Location = new System.Drawing.Point(129, 20);
+            this.SetX3Speed.Name = "SetX3Speed";
+            this.SetX3Speed.Size = new System.Drawing.Size(54, 23);
+            this.SetX3Speed.TabIndex = 2;
+            this.SetX3Speed.Text = "x3";
+            this.SetX3Speed.UseVisualStyleBackColor = true;
+            this.SetX3Speed.Click += new System.EventHandler(this.SetX3Speed_Click);
             // 
             // SetX2Speed
             // 
@@ -947,15 +1027,15 @@ namespace VillageRTS
             this.SetX2Speed.UseVisualStyleBackColor = true;
             this.SetX2Speed.Click += new System.EventHandler(this.SetX2Speed_Click);
             // 
-            // SetX3Speed
+            // SetX1Speed
             // 
-            this.SetX3Speed.Location = new System.Drawing.Point(129, 20);
-            this.SetX3Speed.Name = "SetX3Speed";
-            this.SetX3Speed.Size = new System.Drawing.Size(54, 23);
-            this.SetX3Speed.TabIndex = 2;
-            this.SetX3Speed.Text = "x3";
-            this.SetX3Speed.UseVisualStyleBackColor = true;
-            this.SetX3Speed.Click += new System.EventHandler(this.SetX3Speed_Click);
+            this.SetX1Speed.Location = new System.Drawing.Point(9, 20);
+            this.SetX1Speed.Name = "SetX1Speed";
+            this.SetX1Speed.Size = new System.Drawing.Size(54, 23);
+            this.SetX1Speed.TabIndex = 0;
+            this.SetX1Speed.Text = "x1";
+            this.SetX1Speed.UseVisualStyleBackColor = true;
+            this.SetX1Speed.Click += new System.EventHandler(this.SetX1Speed_Click);
             // 
             // Form1
             // 
@@ -971,6 +1051,7 @@ namespace VillageRTS
             this.MinimumSize = new System.Drawing.Size(800, 589);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.groupBox3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.ActionsPage.ResumeLayout(false);
@@ -983,6 +1064,8 @@ namespace VillageRTS
             this.HumanResourcesGroup.PerformLayout();
             this.MyResourcesGroup.ResumeLayout(false);
             this.MyResourcesGroup.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1042,30 +1125,37 @@ namespace VillageRTS
         private System.Windows.Forms.Label MyHumansLabel;
         private System.Windows.Forms.TextBox MyHumansLimitCount;
         private System.Windows.Forms.Label MyHumansLimitLabel;
-        private System.Windows.Forms.TextBox HumansClothesCount;
-        private System.Windows.Forms.Label HumansClothesLabel;
-        private System.Windows.Forms.TextBox HumansToolsCount;
-        private System.Windows.Forms.Label HumansToolsLabel;
-        private System.Windows.Forms.TextBox HumansFuelCount;
-        private System.Windows.Forms.Label HumansFuelLabel;
-        private System.Windows.Forms.TextBox HumansFoodCount;
-        private System.Windows.Forms.Label HumansFoodLabel;
-        private System.Windows.Forms.TextBox HumansIronCount;
-        private System.Windows.Forms.Label HumansIronLabel;
-        private System.Windows.Forms.TextBox HumansStoneCount;
-        private System.Windows.Forms.Label HumansStoneLabel;
-        private System.Windows.Forms.TextBox HumansWoodCount;
-        private System.Windows.Forms.Label HumansWoodLabel;
-        private System.Windows.Forms.TextBox HumansGoldCount;
-        private System.Windows.Forms.Label HumansGoldLabel;
-        private System.Windows.Forms.TextBox HumansHumansCount;
-        private System.Windows.Forms.Label HumansHumansLabel;
-        private System.Windows.Forms.TextBox HumansHumansLimitCount;
-        private System.Windows.Forms.Label HumansHumansLimitLabel;
+        private System.Windows.Forms.TextBox VillageClothesCount;
+        private System.Windows.Forms.Label VillageClothesLabel;
+        private System.Windows.Forms.TextBox VillageToolsCount;
+        private System.Windows.Forms.Label VillageToolsLabel;
+        private System.Windows.Forms.TextBox VillageFuelCount;
+        private System.Windows.Forms.Label VillageFuelLabel;
+        private System.Windows.Forms.TextBox VillageFoodCount;
+        private System.Windows.Forms.Label VillageFoodLabel;
+        private System.Windows.Forms.TextBox VillageIronCount;
+        private System.Windows.Forms.Label VillageIronLabel;
+        private System.Windows.Forms.TextBox VillageStoneCount;
+        private System.Windows.Forms.Label VillageStoneLabel;
+        private System.Windows.Forms.TextBox VillageWoodCount;
+        private System.Windows.Forms.Label VillageWoodLabel;
+        private System.Windows.Forms.TextBox VillageGoldCount;
+        private System.Windows.Forms.Label VillageGoldLabel;
+        private System.Windows.Forms.TextBox VillageHumansCount;
+        private System.Windows.Forms.Label VillageHumansLabel;
+        private System.Windows.Forms.TextBox VillageHumansLimitCount;
+        private System.Windows.Forms.Label VillageHumansLimitLabel;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button SetX3Speed;
         private System.Windows.Forms.Button SetX2Speed;
         private System.Windows.Forms.Button SetX1Speed;
+        private System.Windows.Forms.Panel ActionBuildingsPanel;
+        private System.Windows.Forms.TextBox VillageLeatherCount;
+        private System.Windows.Forms.Label VillageLeatherLabel;
+        private System.Windows.Forms.TextBox MyLeatherCount;
+        private System.Windows.Forms.Label MyLeatherLabel;
+        private System.Windows.Forms.ToolStripMenuItem GameTS;
+        private System.Windows.Forms.ToolStripMenuItem NewGameSMI;
     }
 }
 
