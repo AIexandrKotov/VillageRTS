@@ -77,8 +77,8 @@ namespace VillageRTS
             {
                 var label = new Label();
                 label.AutoSize = false;
-                label.Size = new System.Drawing.Size(120, 20);
-                var left = 3 + (i % Columns) * 120;
+                label.Size = new System.Drawing.Size(200, 20);
+                var left = 3 + (i % Columns) * 200;
                 var right = 3 + 20 * (i / Columns);
                 label.Location = new System.Drawing.Point(left, right);
                 label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -101,13 +101,13 @@ namespace VillageRTS
             {
                 var label = new Label();
                 label.AutoSize = false;
-                label.Size = new System.Drawing.Size(120, 20);
-                var left = 3 + (i % Columns) * 120;
+                label.Size = new System.Drawing.Size(200, 20);
+                var left = 3 + (i % Columns) * 200;
                 var right = 3 + 20 * (i / Columns);
                 label.Location = new System.Drawing.Point(left, right);
                 label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
-                var s = $"{x.Key}: +{x.Value}".Replace("_", " ").Replace("+-", "-");
+                var s = $"{Program.Text[x.Key]}: +{x.Value}".Replace("_", " ").Replace("+-", "-");
                 label.Text = s;
                 label.ForeColor = GetColor(x.Key);
                 label.TabIndex = i;
@@ -125,13 +125,13 @@ namespace VillageRTS
             {
                 var label = new Label();
                 label.AutoSize = false;
-                label.Size = new System.Drawing.Size(150, 20);
-                var left = 3 + (i % Columns) * 150;
+                label.Size = new System.Drawing.Size(200, 20);
+                var left = 3 + (i % Columns) * 200;
                 var right = 3 + 20 * (i / Columns);
                 label.Location = new System.Drawing.Point(left, right);
                 label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
-                var s = $"{x.Key}: +{x.Value.Item2}".Replace("_", " ").Replace("+-", "-");
+                var s = $"{Program.Text[x.Key]}: +{x.Value.Item2}".Replace("_", " ").Replace("+-", "-");
                 if (x.Value.Item1 > 1) s += "  /" + x.Value.Item1;
                 label.Text = s;
                 label.ForeColor = GetColor(x.Key);

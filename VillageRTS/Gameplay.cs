@@ -27,7 +27,7 @@ namespace VillageRTS
 
         My_Food, //1 Gold
         My_Fuel, //1 Gold
-        My_Tools, //36 Gold = Wood + Iron + 2 Work
+        My_Tools, //42 Gold
         My_Clothes, // 50 Gold = Leather + 2 Work
         My_Leather, //48 Gold
 
@@ -45,6 +45,13 @@ namespace VillageRTS
         Village_Tools,
         Village_Clothes,
         Village_Leather,
+
+        Env_Free_Space,      //Свободное простанство для стройки
+        Env_Forests,     //Лес  принадлежащий деревне
+        Env_Mountains,  //Горы принадлежащие деревне
+        Env_Rivers,     //Реки принадлежащие деревне
+        Env_Fields,     //Поля принадлежащие деревне
+        Env_Territory,     //Неразведанная территория принадлежащая деревне
     }
 
     public class Gameplay
@@ -54,8 +61,15 @@ namespace VillageRTS
         public void Save() => Save(QuickSave);
         public Gameplay TryLoad()
         {
-            if (File.Exists(QuickSave)) return Load();
-            return this;
+            try
+            {
+                if (File.Exists(QuickSave)) return Load();
+                return this;
+            }
+            catch
+            {
+                return this;
+            }
         }
         public Gameplay Load() => Load(QuickSave);
         public void Save(string path)
@@ -71,6 +85,8 @@ namespace VillageRTS
 
         public void WriteInto(BinaryWriter bw)
         {
+            bw.Write(svg_version);
+
             bw.Write(Ticks);
 
             bw.Write(Current.Count);
@@ -87,8 +103,12 @@ namespace VillageRTS
                 bw.Write(b.Value);
             }
         }
+        private static int svg_version = 1;
         public Gameplay ReadFrom(BinaryReader br)
         {
+            var version = br.ReadInt32();
+            if (version != svg_version) return this;
+
             Ticks = br.ReadInt64();
 
             var c = br.ReadInt32();
@@ -110,6 +130,12 @@ namespace VillageRTS
 
             Current[Resource.My_Fuel] = 300;
             Current[Resource.My_Food] = 300;
+            Current[Resource.Env_Free_Space] = 8;
+            Current[Resource.Env_Territory] = 16;
+            Current[Resource.Env_Rivers] = 1;
+            Current[Resource.Env_Forests] = 1;
+            Current[Resource.Env_Fields] = 2;
+
             Buildings[0] = 1;
             Current[Resource.My_Power] = 0;
             return this;

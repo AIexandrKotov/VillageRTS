@@ -17,10 +17,11 @@ namespace VillageRTS
         public Form1()
         {
             InitializeComponent();
-            BuildingCost = new ResourcePanel(BuildingCostPanel).SetColumns(3);
-            BuildingProduction = new ResourcePanel(BuildingProductionPanel).SetColumns(3);
-            ActionCost = new ResourcePanel(ActionPanel).SetColumns(3);
-            ActionBuildings = new ResourcePanel(ActionBuildingsPanel).SetColumns(3);
+            UpdateLocale();
+            BuildingCost = new ResourcePanel(BuildingCostPanel).SetColumns(2);
+            BuildingProduction = new ResourcePanel(BuildingProductionPanel).SetColumns(2);
+            ActionCost = new ResourcePanel(ActionPanel).SetColumns(2);
+            ActionBuildings = new ResourcePanel(ActionBuildingsPanel).SetColumns(2);
             //EnvironmentRes = new ResourcePanel(EnvironmentPanel);
 
             Ticker.Interval = 1000;
@@ -50,7 +51,58 @@ namespace VillageRTS
             VillageClothesLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Clothes);
             VillageLeatherLabel.ForeColor = ResourcePanel.GetColor(Resource.Village_Leather);
 
+            tabControl1.TabPages.RemoveAt(2);
+
             StartNewGame(new Gameplay().Init().TryLoad());
+        }
+
+        public void UpdateLocale()
+        {
+            GameTS.Text = Program.Text["M_Game"];
+            NewGameSMI.Text = Program.Text["M_Game_New"];
+            MyResourcesGroup.Text = Program.Text["T_MYRES"];
+            VillageResourcesGroup.Text = Program.Text["T_VLGRES"];
+            EnvironmentResourcesGroup.Text = Program.Text["T_ENVRES"];
+            ActionsGroup.Text = Program.Text["T_ACTSG"];
+
+            MyPowerLabel.Text = Program.Text["Res_Power"];
+            MyHumansLimitLabel.Text = Program.Text["Res_HumansLimit"];
+            MyHumansLabel.Text = Program.Text["Res_Humans"];
+            MyGoldLabel.Text = Program.Text["Res_Gold"];
+            MyWoodLabel.Text = Program.Text["Res_Wood"];
+            MyStoneLabel.Text = Program.Text["Res_Stone"];
+            MyIronLabel.Text = Program.Text["Res_Iron"];
+            MyFoodLabel.Text = Program.Text["Res_Food"];
+            MyFuelLabel.Text = Program.Text["Res_Fuel"];
+            MyToolsLabel.Text = Program.Text["Res_Tools"];
+            MyClothesLabel.Text = Program.Text["Res_Clothes"];
+            MyLeatherLabel.Text = Program.Text["Res_Leather"];
+
+            VillageHumansLimitLabel.Text = Program.Text["Res_HumansLimit"];
+            VillageHumansLabel.Text = Program.Text["Res_Humans"];
+            VillageGoldLabel.Text = Program.Text["Res_Gold"];
+            VillageWoodLabel.Text = Program.Text["Res_Wood"];
+            VillageStoneLabel.Text = Program.Text["Res_Stone"];
+            VillageIronLabel.Text = Program.Text["Res_Iron"];
+            VillageFoodLabel.Text = Program.Text["Res_Food"];
+            VillageFuelLabel.Text = Program.Text["Res_Fuel"];
+            VillageToolsLabel.Text = Program.Text["Res_Tools"];
+            VillageClothesLabel.Text = Program.Text["Res_Clothes"];
+            VillageLeatherLabel.Text = Program.Text["Res_Leather"];
+
+            EnvFree_SpaceLabel.Text = Program.Text["Res_Free_Space"];
+            EnvFieldsLabel.Text = Program.Text["Res_Fields"];
+            EnvForestsLabel.Text = Program.Text["Res_Forests"];
+            EnvRiversLabel.Text = Program.Text["Res_Rivers"];
+            EnvMountainsLabel.Text = Program.Text["Res_Mountains"];
+            EnvTerritoryLabel.Text = Program.Text["Res_Territory"];
+
+            ActionDoButton.Text = Program.Text["B_Do"];
+            ActionReverseDoButton.Text = Program.Text["B_DoReverse"];
+            BuildingBuildButton.Text = Program.Text["B_Build"];
+            BuildingDestructButton.Text = Program.Text["B_Destruct"];
+
+            UpdateBuildBuilding();
         }
 
         public void StartNewGame(Gameplay gameplay)
@@ -65,10 +117,10 @@ namespace VillageRTS
             if (CurrentGameplay != null)
             {
                 BuildingListBox.Items.Clear();
-                BuildingListBox.Items.AddRange(CurrentGameplay.Buildings.Keys.Select(x => Building.Buildings[x].Name.Replace("_", " ")).ToArray());
+                BuildingListBox.Items.AddRange(CurrentGameplay.Buildings.Keys.Select(x => Building.Buildings[x].Title).ToArray());
 
                 ActionsListBox.Items.Clear();
-                ActionsListBox.Items.AddRange(Array.ConvertAll(Action.Actions, x => x.GetType().Name.Replace("_", " ")));
+                ActionsListBox.Items.AddRange(Array.ConvertAll(Action.Actions, x => x.Title));
             }
         }
 
@@ -86,9 +138,17 @@ namespace VillageRTS
             }
         }
 
+
+        private static string Kround(int a)
+        {
+            if (a > 1000000) return (a / 10000 / 100.0).ToString() + "kk";
+            else if (a > 1000) return (a / 10 / 100.0).ToString() + "k";
+            else return a.ToString();
+        }
+
         public void Fill(TextBox tb, Resource resource)
         {
-            tb.Text = CurrentGameplay.Current[resource].ToString();
+            tb.Text = Kround(CurrentGameplay.Current[resource]);
             tb.BackColor = ResourcePanel.GetCountColor(resource, CurrentGameplay.Current[resource]);
         }
 
@@ -120,6 +180,13 @@ namespace VillageRTS
                 Fill(VillageToolsCount, Resource.Village_Tools);
                 Fill(VillageClothesCount, Resource.Village_Clothes);
                 Fill(VillageLeatherCount, Resource.Village_Leather);
+
+                Fill(EnvFree_SpaceCount, Resource.Env_Free_Space);
+                Fill(EnvFieldsCount, Resource.Env_Fields);
+                Fill(EnvForestsCount, Resource.Env_Forests);
+                Fill(EnvRiversCount, Resource.Env_Rivers);
+                Fill(EnvMountainsCount, Resource.Env_Mountains);
+                Fill(EnvTerritoryCount, Resource.Env_Territory);
 
                 UpdateButtons();
             }
@@ -271,13 +338,14 @@ namespace VillageRTS
 
         private void SetX3Speed_Click(object sender, EventArgs e)
         {
-            Ticker.Interval = 166;
+            Ticker.Interval = 125;
         }
 
         public void UpdateAction()
         {
             if (CurrentGameplay != null && ActionsListBox.SelectedIndex != -1)
             {
+                ActionDescription.Text = CurrentAction.Description;
                 ActionCost.MakeResources(CurrentAction.ResourceAction);
                 ActionBuildings.MakeBuildings(CurrentAction.BuildingAction);
             }
@@ -287,6 +355,7 @@ namespace VillageRTS
         {
             if (CurrentGameplay != null && BuildingListBox.SelectedIndex != -1)
             {
+                BuildingDescription.Text = Building.Buildings[current_building].Description;
                 BuildingCost.MakeResources(Building.Buildings[current_building].Cost);
                 BuildingProduction.MakeResources(Building.Buildings[current_building].GetProduction(CurrentGameplay));
             }

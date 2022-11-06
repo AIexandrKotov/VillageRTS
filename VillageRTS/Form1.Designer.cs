@@ -30,7 +30,7 @@ namespace VillageRTS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.ActionsGroup = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.ActionsPage = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -57,7 +57,7 @@ namespace VillageRTS
             this.BuildingDestructButton = new System.Windows.Forms.Button();
             this.BuildingBuildButton = new System.Windows.Forms.Button();
             this.BuildingListBox = new System.Windows.Forms.ListBox();
-            this.HumanResourcesGroup = new System.Windows.Forms.GroupBox();
+            this.VillageResourcesGroup = new System.Windows.Forms.GroupBox();
             this.VillageLeatherCount = new System.Windows.Forms.TextBox();
             this.VillageLeatherLabel = new System.Windows.Forms.Label();
             this.VillageClothesCount = new System.Windows.Forms.TextBox();
@@ -110,31 +110,46 @@ namespace VillageRTS
             this.GameTS = new System.Windows.Forms.ToolStripMenuItem();
             this.NewGameSMI = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.SetX3Speed = new System.Windows.Forms.Button();
+            this.SetX4Speed = new System.Windows.Forms.Button();
             this.SetX2Speed = new System.Windows.Forms.Button();
             this.SetX1Speed = new System.Windows.Forms.Button();
-            this.groupBox3.SuspendLayout();
+            this.EnvironmentResourcesGroup = new System.Windows.Forms.GroupBox();
+            this.EnvTerritoryCount = new System.Windows.Forms.TextBox();
+            this.EnvTerritoryLabel = new System.Windows.Forms.Label();
+            this.EnvMountainsCount = new System.Windows.Forms.TextBox();
+            this.EnvMountainsLabel = new System.Windows.Forms.Label();
+            this.EnvRiversCount = new System.Windows.Forms.TextBox();
+            this.EnvRiversLabel = new System.Windows.Forms.Label();
+            this.EnvForestsCount = new System.Windows.Forms.TextBox();
+            this.EnvForestsLabel = new System.Windows.Forms.Label();
+            this.EnvFieldsCount = new System.Windows.Forms.TextBox();
+            this.EnvFieldsLabel = new System.Windows.Forms.Label();
+            this.EnvFree_SpaceCount = new System.Windows.Forms.TextBox();
+            this.EnvFree_SpaceLabel = new System.Windows.Forms.Label();
+            this.EventPage = new System.Windows.Forms.TabPage();
+            this.ActionsGroup.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.ActionsPage.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.BuildingPage.SuspendLayout();
             this.BuildingGroup.SuspendLayout();
-            this.HumanResourcesGroup.SuspendLayout();
+            this.VillageResourcesGroup.SuspendLayout();
             this.MyResourcesGroup.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.EnvironmentResourcesGroup.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox3
+            // ActionsGroup
             // 
-            this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox3.Controls.Add(this.tabControl1);
-            this.groupBox3.Location = new System.Drawing.Point(214, 27);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(580, 538);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Actions";
+            this.ActionsGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ActionsGroup.Controls.Add(this.tabControl1);
+            this.ActionsGroup.Location = new System.Drawing.Point(214, 27);
+            this.ActionsGroup.Name = "ActionsGroup";
+            this.ActionsGroup.Size = new System.Drawing.Size(580, 538);
+            this.ActionsGroup.TabIndex = 3;
+            this.ActionsGroup.TabStop = false;
+            this.ActionsGroup.Text = "Actions";
             // 
             // tabControl1
             // 
@@ -143,6 +158,7 @@ namespace VillageRTS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.ActionsPage);
             this.tabControl1.Controls.Add(this.BuildingPage);
+            this.tabControl1.Controls.Add(this.EventPage);
             this.tabControl1.Location = new System.Drawing.Point(6, 19);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -180,7 +196,7 @@ namespace VillageRTS
             this.groupBox1.Size = new System.Drawing.Size(422, 470);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ActionGroup";
+            this.groupBox1.Text = "Actions";
             // 
             // ActionBuildingsPanel
             // 
@@ -435,40 +451,38 @@ namespace VillageRTS
             this.BuildingListBox.Size = new System.Drawing.Size(120, 472);
             this.BuildingListBox.TabIndex = 0;
             this.BuildingListBox.SelectedIndexChanged += new System.EventHandler(this.BuildingListBox_SelectedIndexChanged);
-            this.BuildingListBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.BuildingListBox_MouseDoubleClick);
             // 
-            // HumanResourcesGroup
+            // VillageResourcesGroup
             // 
-            this.HumanResourcesGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.HumanResourcesGroup.Controls.Add(this.VillageLeatherCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageLeatherLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageClothesCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageClothesLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageToolsCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageToolsLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageFuelCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageFuelLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageFoodCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageFoodLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageIronCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageIronLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageStoneCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageStoneLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageWoodCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageWoodLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageGoldCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageGoldLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageHumansCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageHumansLabel);
-            this.HumanResourcesGroup.Controls.Add(this.VillageHumansLimitCount);
-            this.HumanResourcesGroup.Controls.Add(this.VillageHumansLimitLabel);
-            this.HumanResourcesGroup.Location = new System.Drawing.Point(800, 27);
-            this.HumanResourcesGroup.Name = "HumanResourcesGroup";
-            this.HumanResourcesGroup.Size = new System.Drawing.Size(205, 538);
-            this.HumanResourcesGroup.TabIndex = 4;
-            this.HumanResourcesGroup.TabStop = false;
-            this.HumanResourcesGroup.Text = "Village Resourses";
+            this.VillageResourcesGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.VillageResourcesGroup.Controls.Add(this.VillageLeatherCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageLeatherLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageClothesCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageClothesLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageToolsCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageToolsLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageFuelCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageFuelLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageFoodCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageFoodLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageIronCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageIronLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageStoneCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageStoneLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageWoodCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageWoodLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageGoldCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageGoldLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageHumansCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageHumansLabel);
+            this.VillageResourcesGroup.Controls.Add(this.VillageHumansLimitCount);
+            this.VillageResourcesGroup.Controls.Add(this.VillageHumansLimitLabel);
+            this.VillageResourcesGroup.Location = new System.Drawing.Point(800, 27);
+            this.VillageResourcesGroup.Name = "VillageResourcesGroup";
+            this.VillageResourcesGroup.Size = new System.Drawing.Size(205, 353);
+            this.VillageResourcesGroup.TabIndex = 4;
+            this.VillageResourcesGroup.TabStop = false;
+            this.VillageResourcesGroup.Text = "Village Resourses";
             // 
             // VillageLeatherCount
             // 
@@ -687,7 +701,7 @@ namespace VillageRTS
             this.VillageHumansLimitLabel.Name = "VillageHumansLimitLabel";
             this.VillageHumansLimitLabel.Size = new System.Drawing.Size(90, 20);
             this.VillageHumansLimitLabel.TabIndex = 22;
-            this.VillageHumansLimitLabel.Text = "HumanLimit:";
+            this.VillageHumansLimitLabel.Text = "Human Limit:";
             this.VillageHumansLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Ticker
@@ -947,13 +961,14 @@ namespace VillageRTS
             this.MyHumansLimitLabel.Name = "MyHumansLimitLabel";
             this.MyHumansLimitLabel.Size = new System.Drawing.Size(90, 20);
             this.MyHumansLimitLabel.TabIndex = 2;
-            this.MyHumansLimitLabel.Text = "HumanLimit:";
+            this.MyHumansLimitLabel.Text = "Human Limit:";
             this.MyHumansLimitLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // MyPowerCount
             // 
             this.MyPowerCount.BackColor = System.Drawing.Color.White;
             this.MyPowerCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.MyPowerCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.MyPowerCount.Location = new System.Drawing.Point(102, 23);
             this.MyPowerCount.Name = "MyPowerCount";
             this.MyPowerCount.ReadOnly = true;
@@ -991,13 +1006,14 @@ namespace VillageRTS
             // NewGameSMI
             // 
             this.NewGameSMI.Name = "NewGameSMI";
-            this.NewGameSMI.Size = new System.Drawing.Size(180, 22);
+            this.NewGameSMI.Size = new System.Drawing.Size(98, 22);
             this.NewGameSMI.Text = "New";
             this.NewGameSMI.Click += new System.EventHandler(this.NewGameSMI_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.SetX3Speed);
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.SetX4Speed);
             this.groupBox2.Controls.Add(this.SetX2Speed);
             this.groupBox2.Controls.Add(this.SetX1Speed);
             this.groupBox2.Location = new System.Drawing.Point(12, 512);
@@ -1007,15 +1023,15 @@ namespace VillageRTS
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Speed";
             // 
-            // SetX3Speed
+            // SetX4Speed
             // 
-            this.SetX3Speed.Location = new System.Drawing.Point(129, 20);
-            this.SetX3Speed.Name = "SetX3Speed";
-            this.SetX3Speed.Size = new System.Drawing.Size(54, 23);
-            this.SetX3Speed.TabIndex = 2;
-            this.SetX3Speed.Text = "x3";
-            this.SetX3Speed.UseVisualStyleBackColor = true;
-            this.SetX3Speed.Click += new System.EventHandler(this.SetX3Speed_Click);
+            this.SetX4Speed.Location = new System.Drawing.Point(129, 20);
+            this.SetX4Speed.Name = "SetX4Speed";
+            this.SetX4Speed.Size = new System.Drawing.Size(54, 23);
+            this.SetX4Speed.TabIndex = 2;
+            this.SetX4Speed.Text = "x4";
+            this.SetX4Speed.UseVisualStyleBackColor = true;
+            this.SetX4Speed.Click += new System.EventHandler(this.SetX3Speed_Click);
             // 
             // SetX2Speed
             // 
@@ -1037,22 +1053,182 @@ namespace VillageRTS
             this.SetX1Speed.UseVisualStyleBackColor = true;
             this.SetX1Speed.Click += new System.EventHandler(this.SetX1Speed_Click);
             // 
+            // EnvironmentResourcesGroup
+            // 
+            this.EnvironmentResourcesGroup.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvTerritoryCount);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvTerritoryLabel);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvMountainsCount);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvMountainsLabel);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvRiversCount);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvRiversLabel);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvForestsCount);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvForestsLabel);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvFieldsCount);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvFieldsLabel);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvFree_SpaceCount);
+            this.EnvironmentResourcesGroup.Controls.Add(this.EnvFree_SpaceLabel);
+            this.EnvironmentResourcesGroup.Location = new System.Drawing.Point(801, 386);
+            this.EnvironmentResourcesGroup.Name = "EnvironmentResourcesGroup";
+            this.EnvironmentResourcesGroup.Size = new System.Drawing.Size(204, 179);
+            this.EnvironmentResourcesGroup.TabIndex = 23;
+            this.EnvironmentResourcesGroup.TabStop = false;
+            this.EnvironmentResourcesGroup.Text = "Environment";
+            // 
+            // EnvTerritoryCount
+            // 
+            this.EnvTerritoryCount.BackColor = System.Drawing.Color.White;
+            this.EnvTerritoryCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EnvTerritoryCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnvTerritoryCount.Location = new System.Drawing.Point(102, 123);
+            this.EnvTerritoryCount.Name = "EnvTerritoryCount";
+            this.EnvTerritoryCount.ReadOnly = true;
+            this.EnvTerritoryCount.Size = new System.Drawing.Size(88, 13);
+            this.EnvTerritoryCount.TabIndex = 43;
+            this.EnvTerritoryCount.Text = "1999999999";
+            // 
+            // EnvTerritoryLabel
+            // 
+            this.EnvTerritoryLabel.Location = new System.Drawing.Point(6, 119);
+            this.EnvTerritoryLabel.Name = "EnvTerritoryLabel";
+            this.EnvTerritoryLabel.Size = new System.Drawing.Size(90, 20);
+            this.EnvTerritoryLabel.TabIndex = 42;
+            this.EnvTerritoryLabel.Text = "Territory:";
+            this.EnvTerritoryLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EnvMountainsCount
+            // 
+            this.EnvMountainsCount.BackColor = System.Drawing.Color.White;
+            this.EnvMountainsCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EnvMountainsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnvMountainsCount.Location = new System.Drawing.Point(102, 103);
+            this.EnvMountainsCount.Name = "EnvMountainsCount";
+            this.EnvMountainsCount.ReadOnly = true;
+            this.EnvMountainsCount.Size = new System.Drawing.Size(88, 13);
+            this.EnvMountainsCount.TabIndex = 41;
+            this.EnvMountainsCount.Text = "1999999999";
+            // 
+            // EnvMountainsLabel
+            // 
+            this.EnvMountainsLabel.Location = new System.Drawing.Point(6, 99);
+            this.EnvMountainsLabel.Name = "EnvMountainsLabel";
+            this.EnvMountainsLabel.Size = new System.Drawing.Size(90, 20);
+            this.EnvMountainsLabel.TabIndex = 40;
+            this.EnvMountainsLabel.Text = "Mountains:";
+            this.EnvMountainsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EnvRiversCount
+            // 
+            this.EnvRiversCount.BackColor = System.Drawing.Color.White;
+            this.EnvRiversCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EnvRiversCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnvRiversCount.Location = new System.Drawing.Point(102, 83);
+            this.EnvRiversCount.Name = "EnvRiversCount";
+            this.EnvRiversCount.ReadOnly = true;
+            this.EnvRiversCount.Size = new System.Drawing.Size(88, 13);
+            this.EnvRiversCount.TabIndex = 39;
+            this.EnvRiversCount.Text = "1999999999";
+            // 
+            // EnvRiversLabel
+            // 
+            this.EnvRiversLabel.Location = new System.Drawing.Point(6, 79);
+            this.EnvRiversLabel.Name = "EnvRiversLabel";
+            this.EnvRiversLabel.Size = new System.Drawing.Size(90, 20);
+            this.EnvRiversLabel.TabIndex = 38;
+            this.EnvRiversLabel.Text = "Rivers:";
+            this.EnvRiversLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EnvForestsCount
+            // 
+            this.EnvForestsCount.BackColor = System.Drawing.Color.White;
+            this.EnvForestsCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EnvForestsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnvForestsCount.Location = new System.Drawing.Point(102, 63);
+            this.EnvForestsCount.Name = "EnvForestsCount";
+            this.EnvForestsCount.ReadOnly = true;
+            this.EnvForestsCount.Size = new System.Drawing.Size(88, 13);
+            this.EnvForestsCount.TabIndex = 37;
+            this.EnvForestsCount.Text = "1999999999";
+            // 
+            // EnvForestsLabel
+            // 
+            this.EnvForestsLabel.Location = new System.Drawing.Point(6, 59);
+            this.EnvForestsLabel.Name = "EnvForestsLabel";
+            this.EnvForestsLabel.Size = new System.Drawing.Size(90, 20);
+            this.EnvForestsLabel.TabIndex = 36;
+            this.EnvForestsLabel.Text = "Forests:";
+            this.EnvForestsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EnvFieldsCount
+            // 
+            this.EnvFieldsCount.BackColor = System.Drawing.Color.White;
+            this.EnvFieldsCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EnvFieldsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnvFieldsCount.Location = new System.Drawing.Point(102, 43);
+            this.EnvFieldsCount.Name = "EnvFieldsCount";
+            this.EnvFieldsCount.ReadOnly = true;
+            this.EnvFieldsCount.Size = new System.Drawing.Size(88, 13);
+            this.EnvFieldsCount.TabIndex = 35;
+            this.EnvFieldsCount.Text = "1999999999";
+            // 
+            // EnvFieldsLabel
+            // 
+            this.EnvFieldsLabel.Location = new System.Drawing.Point(6, 39);
+            this.EnvFieldsLabel.Name = "EnvFieldsLabel";
+            this.EnvFieldsLabel.Size = new System.Drawing.Size(90, 20);
+            this.EnvFieldsLabel.TabIndex = 34;
+            this.EnvFieldsLabel.Text = "Fields:";
+            this.EnvFieldsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EnvFree_SpaceCount
+            // 
+            this.EnvFree_SpaceCount.BackColor = System.Drawing.Color.White;
+            this.EnvFree_SpaceCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EnvFree_SpaceCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EnvFree_SpaceCount.Location = new System.Drawing.Point(102, 23);
+            this.EnvFree_SpaceCount.Name = "EnvFree_SpaceCount";
+            this.EnvFree_SpaceCount.ReadOnly = true;
+            this.EnvFree_SpaceCount.Size = new System.Drawing.Size(88, 13);
+            this.EnvFree_SpaceCount.TabIndex = 33;
+            this.EnvFree_SpaceCount.Text = "1999999999";
+            // 
+            // EnvFree_SpaceLabel
+            // 
+            this.EnvFree_SpaceLabel.Location = new System.Drawing.Point(6, 19);
+            this.EnvFree_SpaceLabel.Name = "EnvFree_SpaceLabel";
+            this.EnvFree_SpaceLabel.Size = new System.Drawing.Size(90, 20);
+            this.EnvFree_SpaceLabel.TabIndex = 32;
+            this.EnvFree_SpaceLabel.Text = "Free Space:";
+            this.EnvFree_SpaceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // EventPage
+            // 
+            this.EventPage.Location = new System.Drawing.Point(4, 22);
+            this.EventPage.Name = "EventPage";
+            this.EventPage.Padding = new System.Windows.Forms.Padding(3);
+            this.EventPage.Size = new System.Drawing.Size(560, 487);
+            this.EventPage.TabIndex = 2;
+            this.EventPage.Text = "Event";
+            this.EventPage.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 577);
+            this.Controls.Add(this.EnvironmentResourcesGroup);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.MyResourcesGroup);
-            this.Controls.Add(this.HumanResourcesGroup);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.VillageResourcesGroup);
+            this.Controls.Add(this.ActionsGroup);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(800, 589);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "VillageRTS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.groupBox3.ResumeLayout(false);
+            this.ActionsGroup.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.ActionsPage.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -1060,21 +1236,23 @@ namespace VillageRTS
             this.BuildingPage.ResumeLayout(false);
             this.BuildingGroup.ResumeLayout(false);
             this.BuildingGroup.PerformLayout();
-            this.HumanResourcesGroup.ResumeLayout(false);
-            this.HumanResourcesGroup.PerformLayout();
+            this.VillageResourcesGroup.ResumeLayout(false);
+            this.VillageResourcesGroup.PerformLayout();
             this.MyResourcesGroup.ResumeLayout(false);
             this.MyResourcesGroup.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.EnvironmentResourcesGroup.ResumeLayout(false);
+            this.EnvironmentResourcesGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox HumanResourcesGroup;
+        private System.Windows.Forms.GroupBox ActionsGroup;
+        private System.Windows.Forms.GroupBox VillageResourcesGroup;
         private System.Windows.Forms.Timer Ticker;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage BuildingPage;
@@ -1146,7 +1324,7 @@ namespace VillageRTS
         private System.Windows.Forms.TextBox VillageHumansLimitCount;
         private System.Windows.Forms.Label VillageHumansLimitLabel;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button SetX3Speed;
+        private System.Windows.Forms.Button SetX4Speed;
         private System.Windows.Forms.Button SetX2Speed;
         private System.Windows.Forms.Button SetX1Speed;
         private System.Windows.Forms.Panel ActionBuildingsPanel;
@@ -1156,6 +1334,20 @@ namespace VillageRTS
         private System.Windows.Forms.Label MyLeatherLabel;
         private System.Windows.Forms.ToolStripMenuItem GameTS;
         private System.Windows.Forms.ToolStripMenuItem NewGameSMI;
+        private System.Windows.Forms.GroupBox EnvironmentResourcesGroup;
+        private System.Windows.Forms.TextBox EnvMountainsCount;
+        private System.Windows.Forms.Label EnvMountainsLabel;
+        private System.Windows.Forms.TextBox EnvRiversCount;
+        private System.Windows.Forms.Label EnvRiversLabel;
+        private System.Windows.Forms.TextBox EnvForestsCount;
+        private System.Windows.Forms.Label EnvForestsLabel;
+        private System.Windows.Forms.TextBox EnvFieldsCount;
+        private System.Windows.Forms.Label EnvFieldsLabel;
+        private System.Windows.Forms.TextBox EnvFree_SpaceCount;
+        private System.Windows.Forms.Label EnvFree_SpaceLabel;
+        private System.Windows.Forms.TextBox EnvTerritoryCount;
+        private System.Windows.Forms.Label EnvTerritoryLabel;
+        private System.Windows.Forms.TabPage EventPage;
     }
 }
 

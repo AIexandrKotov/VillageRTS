@@ -8,6 +8,17 @@ namespace VillageRTS
 {
     public abstract class Action
     {
+        private string typename;
+        public string Typename
+        {
+            get
+            {
+                if (typename == null) typename = GetType().Name;
+                return typename;
+            }
+        }
+        public string Title => Program.Text[this, DBT.Name];
+        public string Description => Program.Text[this, DBT.Description];
         private static Action[] GetAllActions() =>
             typeof(Action).Assembly.GetTypes().Where(x => x.BaseType == typeof(Action))
             .Select(x => x.GetConstructor(new Type[0]).Invoke(new object[0]) as Action).ToArray();
@@ -53,55 +64,5 @@ namespace VillageRTS
                 gameplay.Buildings[x.Key] -= x.Value;
             for (var i = 0; i < mult; i++) AdditionalReverseAction(gameplay);
         }
-    }
-
-    public class Cut_Tree : Action
-    {
-        public override Dictionary<Resource, int> ResourceAction { get; protected set; } = new Dictionary<Resource, int>() {
-            { Resource.My_Power, -32 },
-            { Resource.My_Wood, +4 },
-        };
-    }
-
-    public class Cut_Woods : Action
-    {
-        public override Dictionary<Resource, int> ResourceAction { get; protected set; } = new Dictionary<Resource, int>() {
-            { Resource.My_Power, -1 },
-            { Resource.My_Wood, -1 },
-            { Resource.My_Fuel, +7 },
-        };
-    }
-
-    public class E_Sell_Woods : Action
-    {
-        public override Dictionary<Resource, int> ResourceAction { get; protected set; } = new Dictionary<Resource, int>() {
-            { Resource.My_Gold, +4 },
-            { Resource.My_Wood, -2 },
-        };
-    }
-
-    public class Sell_Woods : Action
-    {
-        public override Dictionary<Resource, int> ResourceAction { get; protected set; } = new Dictionary<Resource, int>() {
-            { Resource.My_Gold, +16 },
-            { Resource.My_Wood, -2 },
-            { Resource.Village_Gold, -16 },
-            { Resource.Village_Wood, +2 },
-        };
-    }
-
-    public class Sell_House : Action
-    {
-        public override Dictionary<int, int> BuildingAction { get; protected set; } = new Dictionary<int, int>()
-        {
-            { Building.GetBuildingIndexByName("My_House"), -1 },
-            { Building.GetBuildingIndexByName("House"), +1 },
-        };
-        public override Dictionary<Resource, int> ResourceAction { get; protected set; } = new Dictionary<Resource, int>() {
-            { Resource.My_Gold, +544 },
-            { Resource.Village_Gold, -544 },
-            { Resource.My_HumansLimit, -6 },
-            { Resource.Village_HumansLimit, +6 },
-        };
     }
 }
